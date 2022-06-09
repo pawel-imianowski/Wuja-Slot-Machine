@@ -1,8 +1,12 @@
+const uri = 'https://wujasapi.azure-api.net/spin'
 let bet = 1;
+let outcome = [];
 
 function spin() {
-    var slot = document.getElementById('slotArea')
-    slot.setAttribute("style", "background-image: url(/src/assets/ribbentropmolotov.jpg); background-repeat: no-repeat; background-size: cover;")
+    fetch(uri)
+    .then(response => response.json())
+    .then(console.log)
+    .catch(error => console.error('Unable to get outcome.', error));
 }
 
 function increaseBet() {
