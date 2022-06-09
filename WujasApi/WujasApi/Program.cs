@@ -33,7 +33,7 @@ app.MapGet("/spin", () =>
         .ToArray();
     return outcome;
 })
-.WithName("GetSpinOutcome");
+.WithName("GetSpinOutcome").AllowAnonymous();
 
 app.Run();
 
