@@ -127,3 +127,20 @@ body{
 .m-0{
     margin: 0;
 }
+
+#reels {
+    display: flex;
+    width: 100vw;
+}
+
+.reel {
+    overflow: hidden;
+    width: 20%;
+    height: 100%;
+}
+
+.reel > .icons > img {
+    width: calc(100% + 6px);
+    margin: -3px 0 0 -3px;
+    height: auto;
+}

@@ -16,28 +16,27 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+var symbols = new[]
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    "apple", "bow", "coat", "dinosaur", "fish", "girl", "heart", "midas", "pants"
 };
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/spin", () =>
 {
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-       new WeatherForecast
-       (
-           DateTime.Now.AddDays(index),
-           Random.Shared.Next(-20, 55),
-           summaries[Random.Shared.Next(summaries.Length)]
-       ))
+    var outcome = Enumerable.Range(1, 5).Select(index =>
+        new SpinOutcome
+        (
+            symbols[Random.Shared.Next(symbols.Length)], 
+            symbols[Random.Shared.Next(symbols.Length)], 
+            symbols[Random.Shared.Next(symbols.Length)])
+        )
         .ToArray();
-    return forecast;
+    return outcome;
 })
-.WithName("GetWeatherForecast");
+.WithName("GetSpinOutcome");
 
 app.Run();
 
-internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
+internal record SpinOutcome(string reel1, string reel2, string reel3)
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
