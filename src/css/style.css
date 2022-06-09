@@ -53,10 +53,11 @@ body{
 }
 
 #slotArea{
-    background-color: grey;
+    
     height: 65%;
     width: 100%;
     margin-bottom: 5%;
+    background-color: gray;
 }
 
 #controlPanel{
