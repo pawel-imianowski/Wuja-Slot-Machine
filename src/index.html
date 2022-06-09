@@ -7,6 +7,8 @@
         <title>WUJASONATOR 3000</title>
         <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Press+Start+2P">
+        <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css">
         <link rel="stylesheet" href="css/pixelButtons.css">
         <link rel="stylesheet" href="css/style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -29,7 +31,7 @@
                     <div id="controlPanel" class="d-flex">                        
                         <div id="amountWrapper" class="h-100 d-flex">
                             <div id="minusButtonWrapper" class="h-100">
-                                <div  class="pixel2 pixel-button controlPanelHeightAdjust">
+                                <div  class="pixel2 pixel-button controlPanelHeightAdjust" onclick="decreaseBet()">
                                     <p id="minusButtonText" class="h-100 m-0">-</p>
                                 </div>
                             </div>
@@ -37,21 +39,23 @@
                             <div id="amountIndicatorWrapper" class="pl-5px h-100">
                                 <div id="amountIndicator" class="pixel2 controlPanelHeightAdjust" >
                                     <p id="amountIndicatorDesc" class="w-100">Kręcisz za:</p>
-                                    <div class="w-100">
-                                        <p id="amountIndicatorValue" class="d-inline-block w-100" >20.00 PLN</p>
+                                    <div class="d-flex">
+                                        <p id="amountIndicatorValue" class="d-inline-block w-100">1</p>
+                                        <p class="d-inline-block w-100">PLN</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div id="plusButtonWrapper" class="pl-5px h-100">
-                                <div  class="pixel2 pixel-button controlPanelHeightAdjust">
+                                <div class="pixel2 pixel-button controlPanelHeightAdjust" onclick="increaseBet()">
                                     <p id="plusButtonText" class="h-100 m-0">+</p>
                                 </div>
                             </div>
                         </div>
                         <div id="spinButtonWrapper" class="h-100">
-                            <div class="pixel2 pixel-button controlPanelHeightAdjust">
+                            <div class="pixel2 pixel-button controlPanelHeightAdjust" onclick="spin()">
                                 <p id="spinButtonText" class="w-100">Zakręć!</p>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -60,6 +64,7 @@
         </div>
 
 	    <script src="js/index.js"></script>
+        <script src="js/slot.js"></script>
         <!--<script src="reset.css"></script>-->
     </body>
 </html>
