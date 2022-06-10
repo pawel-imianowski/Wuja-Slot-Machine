@@ -25,12 +25,12 @@ app.MapGet("/spin/{cost}", (decimal cost) =>
 {
     // TODO: subtract cost value here, abort if cost exceeds available funds
 
-    string[,] tileMatrix = new string[4,2];
+    string[][] tileMatrix = new string[4][2];
         
     for(int i = 0; i < tileMatrix.GetLength(0); i++) // iterate columns
     {
         for(int j = 0; j < tileMatrix.GetLength(1); j++) // iterate rows
-            tileMatrix[i,j] = symbols[Random.Shared.Next(symbols.Length)]; 
+            tileMatrix[i][j] = symbols[Random.Shared.Next(symbols.Length)]; 
     }
 
     // TODO: bonus/wild logic here
