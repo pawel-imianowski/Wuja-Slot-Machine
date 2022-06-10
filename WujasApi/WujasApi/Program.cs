@@ -21,22 +21,33 @@ var symbols = new[]
     "apple", "bow", "coat", "dinosaur", "fish", "girl", "heart", "midas", "pants"
 };
 
-app.MapGet("/spin", () =>
+app.MapGet("/spin/{cost}", (decimal cost) =>
 {
-    var outcome = Enumerable.Range(1, 5).Select(index =>
-        new SpinOutcome
-        (
-            symbols[Random.Shared.Next(symbols.Length)], 
-            symbols[Random.Shared.Next(symbols.Length)], 
-            symbols[Random.Shared.Next(symbols.Length)])
-        )
-        .ToArray();
-    return outcome;
+    // TODO: subtract cost value here, abort if cost exceeds available funds
+
+    string[,] tileMatrix = new string[4,2];
+        
+    for(int i = 0; i < tileMatrix.GetLength(0); i++) // iterate columns
+    {
+        for(int j = 0; j < tileMatrix.GetLength(1); j++) // iterate rows
+            tileMatrix[i,j] = symbols[Random.Shared.Next(symbols.Length)]; 
+    }
+
+    // TODO: bonus/wild logic here
+
+    decimal reward = 0; // TODO: reward logic here - calculate reward according to drawn tiles, bonuses and cost parameter
+
+    return new SpinOutcome
+    (
+        tileMatrix,
+        reward
+        // TODO: send info about bonuses to display animations
+    ).ToArray();
 })
 .WithName("GetSpinOutcome").AllowAnonymous();
 
 app.Run();
 
-internal record SpinOutcome(string reel1, string reel2, string reel3)
+internal record SpinOutcome(IEnumerable tileMatrix, decimal reward/*, IEnumerable bonusList*/)
 {
 }
