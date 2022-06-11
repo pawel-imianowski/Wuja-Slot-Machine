@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,27 +18,38 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var symbols = new[]
-{
-    "apple", "bow", "coat", "dinosaur", "fish", "girl", "heart", "midas", "pants"
-};
+int[] possibleRolls = Enumerable.Range(0, 8).ToArray();
 
-app.MapGet("/spin", () =>
+app.MapGet("/spin/{cost}", (decimal cost) =>
 {
-    var outcome = Enumerable.Range(1, 5).Select(index =>
-        new SpinOutcome
+    // TODO: subtract cost value here, abort if cost exceeds available funds
+
+    int[,] tileMatrix = new int[5,3];
+        
+    for(int i = 0; i < tileMatrix.GetLength(0); i++) // iterate columns
+    {
+        for(int j = 0; j < tileMatrix.GetLength(1); j++) // iterate rows
+            tileMatrix[i,j] = possibleRolls[Random.Shared.Next(possibleRolls.Count())]; 
+    }
+
+    // TODO: bonus/wild logic here
+
+    decimal reward = 0; // TODO: reward logic here - calculate reward according to drawn tiles, bonuses and cost parameter
+
+    return JsonConvert.SerializeObject
         (
-            symbols[Random.Shared.Next(symbols.Length)], 
-            symbols[Random.Shared.Next(symbols.Length)], 
-            symbols[Random.Shared.Next(symbols.Length)])
-        )
-        .ToArray();
-    return outcome;
+            new SpinOutcome
+            (
+                tileMatrix,
+                reward
+                // TODO: send info about bonuses to display animations
+            )
+        );
 })
 .WithName("GetSpinOutcome").AllowAnonymous();
 
 app.Run();
 
-internal record SpinOutcome(string reel1, string reel2, string reel3)
+internal record SpinOutcome(int[,] tileMatrix, decimal reward/*, IEnumerable bonusList*/)
 {
 }
