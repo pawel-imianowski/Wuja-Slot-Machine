@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\szymo\\Documents\\Repositories\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\WujasApi.csproj": {}
+    "C:\\Users\\Pwl\\Source\\Repos\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\WujasApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\szymo\\Documents\\Repositories\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\WujasApi.csproj": {
+    "C:\\Users\\Pwl\\Source\\Repos\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\WujasApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\szymo\\Documents\\Repositories\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\WujasApi.csproj",
+        "projectUniqueName": "C:\\Users\\Pwl\\Source\\Repos\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\WujasApi.csproj",
         "projectName": "WujasApi",
-        "projectPath": "C:\\Users\\szymo\\Documents\\Repositories\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\WujasApi.csproj",
-        "packagesPath": "C:\\Users\\szymo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\szymo\\Documents\\Repositories\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\obj\\",
+        "projectPath": "C:\\Users\\Pwl\\Source\\Repos\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\WujasApi.csproj",
+        "packagesPath": "C:\\Users\\Pwl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pwl\\Source\\Repos\\Wuja-Slot-Machine\\WujasApi\\WujasApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\szymo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pwl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

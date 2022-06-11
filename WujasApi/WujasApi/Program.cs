@@ -16,21 +16,18 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var symbols = new[]
-{
-    "apple", "bow", "coat", "dinosaur", "fish", "girl", "heart", "midas", "pants"
-};
+int[] possibleRolls = Enumerable.Range(0, 8).ToArray();
 
 app.MapGet("/spin/{cost}", (decimal cost) =>
 {
     // TODO: subtract cost value here, abort if cost exceeds available funds
 
-    string[][] tileMatrix = new string[4][2];
+    int[,] tileMatrix = new int[4,2];
         
     for(int i = 0; i < tileMatrix.GetLength(0); i++) // iterate columns
     {
         for(int j = 0; j < tileMatrix.GetLength(1); j++) // iterate rows
-            tileMatrix[i][j] = symbols[Random.Shared.Next(symbols.Length)]; 
+            tileMatrix[i,j] = possibleRolls[Random.Shared.Next(possibleRolls.Count())]; 
     }
 
     // TODO: bonus/wild logic here
@@ -41,13 +38,13 @@ app.MapGet("/spin/{cost}", (decimal cost) =>
     (
         tileMatrix,
         reward
-        // TODO: send info about bonuses to display animations
-    ).ToArray();
+    // TODO: send info about bonuses to display animations
+    );
 })
 .WithName("GetSpinOutcome").AllowAnonymous();
 
 app.Run();
 
-internal record SpinOutcome(IEnumerable tileMatrix, decimal reward/*, IEnumerable bonusList*/)
+internal record SpinOutcome(int[,] tileMatrix, decimal reward/*, IEnumerable bonusList*/)
 {
 }
