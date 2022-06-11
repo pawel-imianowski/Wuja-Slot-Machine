@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,7 +24,7 @@ app.MapGet("/spin/{cost}", (decimal cost) =>
 {
     // TODO: subtract cost value here, abort if cost exceeds available funds
 
-    int[,] tileMatrix = new int[4,2];
+    int[,] tileMatrix = new int[5,3];
         
     for(int i = 0; i < tileMatrix.GetLength(0); i++) // iterate columns
     {
@@ -34,12 +36,15 @@ app.MapGet("/spin/{cost}", (decimal cost) =>
 
     decimal reward = 0; // TODO: reward logic here - calculate reward according to drawn tiles, bonuses and cost parameter
 
-    return new SpinOutcome
-    (
-        tileMatrix,
-        reward
-    // TODO: send info about bonuses to display animations
-    );
+    return JsonConvert.SerializeObject
+        (
+            new SpinOutcome
+            (
+                tileMatrix,
+                reward
+                // TODO: send info about bonuses to display animations
+            )
+        );
 })
 .WithName("GetSpinOutcome").AllowAnonymous();
 
