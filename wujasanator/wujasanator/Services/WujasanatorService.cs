@@ -6,7 +6,7 @@
         int[] possibleRolls = Enumerable.Range(0, 8).ToArray();
 
         ///<see cref="IWujasanatorService.GetSpinOutcome(decimal)">
-        public IWujasanatorSpinOutcome GetSpinOutcome(decimal cost)
+        public WujasanatorSpinOutcome GetSpinOutcome(decimal cost)
         {
             int[,] tileMatrix = new int[5,3];
                 
@@ -23,7 +23,8 @@
             return new WujasanatorSpinOutcome
                 (
                     tileMatrix,
-                    reward
+                    reward,
+                    new string[0]
                     // TODO: send info about bonuses to display animations
                 );
         }

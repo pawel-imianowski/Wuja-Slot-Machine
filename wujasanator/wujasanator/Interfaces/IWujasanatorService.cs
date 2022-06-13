@@ -11,6 +11,6 @@
         ///<returns>
         ///Calculated <paramref name="IWujasanatorSpinOutcome">
         ///</returns>
-        IWujasanatorSpinOutcome GetSpinOutcome(decimal cost);
+        WujasanatorSpinOutcome GetSpinOutcome(decimal cost);
     }
 }

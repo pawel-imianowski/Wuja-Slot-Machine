@@ -65,9 +65,11 @@
                             </div>
                         </div>
                         <div id="spinButtonWrapper" class="h-100">
-                            <div class="pixel2 pixel-button controlPanelHeightAdjust" onclick="spin()">
+                            <form method="post" asp-page-handler="spin">
+                            <button class="pixel2 pixel-button controlPanelHeightAdjust" type="submit">
                                 <p id="spinButtonText" class="w-100">Zakręć!</p>
-                            </div>
+                            </button>
+                            </form>
                             </div>
                         </div>
                     </div>
