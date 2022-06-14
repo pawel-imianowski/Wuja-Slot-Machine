@@ -1,16 +1,17 @@
 //const uri = 'https://wujasapi.azure-api.net/spin'
 let bet = 1;
-let outcome = [];
 
 $('#spinButton').click(function(){
-    spin($('#amountIndicatorValue').textContent)
+    spin(document.getElementById('amountIndicatorValue').textContent)
 });
 
 function spin(costValue) {
-    postData(location.href + "?handler=Spin", 12.32)
+    postData(location.href + "?handler=Spin", costValue)
         .then(data => {
             for(var col = 0; col < data.TileMatrix.length; col++){
-                alert(data.TileMatrix[col]);
+                for(var row = 0; row < data.TileMatrix[col].length; row++){
+                    $('#tile'+col+row+' > img').attr("src","/assets/symbols/"+getPictureNameById(data.TileMatrix[col][row]));
+                }
             }
             if (data.Bonuses != ""){alert('BONUSY: ' + data.Bonuses);}
             alert('WYGRAŁEŚ: '+ data.Reward + 'PLN');
@@ -19,8 +20,6 @@ function spin(costValue) {
 }
 
 async function postData(url = '', data = {}){
-    
-    alert(JSON.stringify(data));
     // Default options are marked with *
     const response = await fetch(url, {
         method: 'POST',
@@ -49,4 +48,42 @@ function decreaseBet() {
         var amount = document.getElementById("amountIndicatorValue");
         amount.textContent = bet;
     }
+}
+
+function getPictureNameById(id){
+    let pictureName = "";
+    switch(id){
+        case 0:
+            pictureName = "apple.svg";
+            break;
+        case 1:
+            pictureName = "bow.svg";
+            break;
+        case 2:
+            pictureName = "coat.svg";
+            break;
+        case 3:
+            pictureName = "dinosaur.svg";
+            break;
+        case 4:
+            pictureName = "fish.svg";
+            break;
+        case 5:
+            pictureName = "girl.svg";
+            break;
+        case 6:
+            pictureName = "heart.svg";
+            break;
+        case 7:
+            pictureName = "midas.svg";
+            break;
+        case 8:
+            pictureName = "pants.svg";
+            break;
+        default:
+            alert("coś poszło nie tak");
+            break;
+    }
+    
+    return pictureName;
 }

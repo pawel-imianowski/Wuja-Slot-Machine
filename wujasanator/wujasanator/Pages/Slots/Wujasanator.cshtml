@@ -13,37 +13,37 @@
                 <div id="slotPaddingWrapper" class="d-flex">
                     <div id="slotArea">
                         <div id="reelContainer" class="row h-100 w-100">
-                            <div class="reel col">
-                                <div id="tile00" class="tile"><img src="/assets/symbols/apple.svg" class="w-100 h-100"/></div>
-                                <div id="tile01" class="tile"></div>
-                                <div id="tile02" class="tile"></div>
+                            <div class="reel col h-100">
+                                <div id="tile00" class="tile"><img src="/assets/symbols/apple.svg" class="h-100 w-100"/></div>
+                                <div id="tile01" class="tile"><img src="/assets/symbols/apple.svg" class="h-100 w-100"/></div>
+                                <div id="tile02" class="tile"><img src="/assets/symbols/apple.svg" class="h-100 w-100"/></div>
                             </div>
-                            <div class="reel col">
-                                <div id="tile10" class="tile"></div>
-                                <div id="tile11" class="tile"></div>
-                                <div id="tile12" class="tile"></div>
+                            <div class="reel col h-100">
+                                <div id="tile10" class="tile"><img src="/assets/symbols/apple.svg" class="h-100 w-100"/></div>
+                                <div id="tile11" class="tile"><img src="/assets/symbols/apple.svg" class="h-100 w-100"/></div>
+                                <div id="tile12" class="tile"><img class="h-100"/></div>
                             </div>
-                            <div class="reel col">
-                                <div id="tile20" class="tile"></div>
-                                <div id="tile21" class="tile"></div>
-                                <div id="tile22" class="tile"></div>
+                            <div class="reel col h-100">
+                                <div id="tile20" class="tile"><img class="h-100"/></div>
+                                <div id="tile21" class="tile"><img class="h-100"/></div>
+                                <div id="tile22" class="tile"><img class="h-100"/></div>
                             </div>
-                            <div class="reel col">
-                                <div id="tile30" class="tile"></div>
-                                <div id="tile31" class="tile"></div>
-                                <div id="tile32" class="tile"></div>
+                            <div class="reel col h-100">
+                                <div id="tile30" class="tile"><img class="h-100"/></div>
+                                <div id="tile31" class="tile"><img class="h-100"/></div>
+                                <div id="tile32" class="tile"><img class="h-100"/></div>
                             </div>
-                            <div class="reel col">
-                                <div id="tile40" class="tile"></div>
-                                <div id="tile41" class="tile"></div>
-                                <div id="tile42" class="tile"></div>
+                            <div class="reel col h-100">
+                                <div id="tile40" class="tile"><img class="h-100"/></div>
+                                <div id="tile41" class="tile"><img class="h-100"/></div>
+                                <div id="tile42" class="tile"><img class="h-100"/></div>
                             </div>
                         </div>
                     </div>
                     <div id="controlPanel" class="d-flex">                        
                         <div id="amountWrapper" class="h-100 d-flex">
                             <div id="minusButtonWrapper" class="h-100">
-                                <div  class="pixel2 pixel-button controlPanelHeightAdjust" onclick="decreaseBet()">
+                                <div class="pixel2 pixel-button controlPanelHeightAdjust" onclick="decreaseBet()">
                                     <p id="minusButtonText" class="h-100 m-0">-</p>
                                 </div>
                             </div>
@@ -79,9 +79,9 @@
         </div>
 </body>
 
-<scripts>
+@section Scripts{
     <script src="~/js/jquery.fittext.js"></script>
     <script src="~/js/index.js"></script>
     <script src="~/js/wujasanator.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-</scripts>
+    <script src="~/js/site.js" asp-append-version="true"></script>  
+}
