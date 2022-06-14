@@ -16,14 +16,14 @@ namespace wujasanator.Pages.Slots
         {
         }
 
-        public ContentResult OnPostSpin(decimal cost)
+        public ContentResult OnPostSpin([FromBody] decimal spinCost)
         {
             // TODO: subtract cost value here, abort if cost exceeds available funds
 
             return Content // can't return JsonResult, because it would serialize twice
                 (
                     JsonConvert.SerializeObject( // serialize with Newtonsoft.Json - JsonResult() can't serialize 2d array
-                        service.GetSpinOutcome(cost)
+                        service.GetSpinOutcome(spinCost)
                     ),
                     "application/json"
                 );
