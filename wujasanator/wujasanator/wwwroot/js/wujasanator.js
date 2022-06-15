@@ -1,5 +1,7 @@
 //const uri = 'https://wujasapi.azure-api.net/spin'
-let bet = 1;
+let bet = 1.00;
+
+$('#amountIndicatorValue').fitText(0.5);
 
 $('#spinButton').click(function(){
     spin(document.getElementById('amountIndicatorValue').textContent)
@@ -10,7 +12,7 @@ function spin(costValue) {
         .then(data => {
             for(var col = 0; col < data.TileMatrix.length; col++){
                 for(var row = 0; row < data.TileMatrix[col].length; row++){
-                    $('#tile'+col+row+' > img').attr("src","/assets/symbols/"+getPictureNameById(data.TileMatrix[col][row]));
+                    $('#tile'+col+row+' > img').attr("src","/assets/wujasanator/symbols/"+getPictureNameById(data.TileMatrix[col][row]));
                 }
             }
             if (data.Bonuses != ""){alert('BONUSY: ' + data.Bonuses);}
@@ -39,14 +41,14 @@ async function postData(url = '', data = {}){
 function increaseBet() {
     bet += 0.25;
     var amount = document.getElementById("amountIndicatorValue");
-    amount.textContent = bet;
+    amount.textContent = bet.toFixed(2);
 }
 
 function decreaseBet() {
     if(bet > 0.25 ) {
         bet -= 0.25;
         var amount = document.getElementById("amountIndicatorValue");
-        amount.textContent = bet;
+        amount.textContent = bet.toFixed(2);
     }
 }
 
